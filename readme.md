@@ -12,7 +12,7 @@ Before getting started, make sure you have the following installed on your syste
 
 ## Structure
 
-CodingClub -
+- CodingClub -
 
     - CodingClubTests // Test project home directory
         - CodingClubTests.csproj    // Test project file
