@@ -28,8 +28,9 @@ Before getting started, make sure you have the following installed on your syste
             - Readme.txt    // Copy the exercise requirement in this readme file
             - ApproachTestable.cs  // Your actual work is in DoJob method of this class
 
-        Program.cs  // Main function entry. You may also debug your script here
-        TestableConsole.cs // The toolkit classes are defined here to support testing and debugging
+        - Program.cs  // Main function entry. You put the tested script into the main function, do a final test, then copy the whole text to the Code Club web to submit.
+        - TestableConsole.cs // The toolkit classes are defined here to support testing and debugging
+        - Exercises.csproj  // The main project file
     
     - .gitignore // git settings, to ingnore the build output files when sync to cloud
     - CodingClub.sln // Solution file
@@ -44,3 +45,27 @@ The `Exercises` directory contains subdirectories for each homework exercise. Ea
 `.gitignore` is a file that contains Git settings to ignore the build output files when syncing to the cloud.
 
 `CodingClub.sln` is the solution file for the project.
+
+## An example
+For a task called GHOSTBUSTERS on Coding Club website
+- Create a new folder GhostBusters under folder Exercises
+- Copy file Exercises/ComputerProblem.cs to the new folder then rename it to GhostBusters.cs
+- Rename the class name to ComputerProblem in the file
+- Create a readme file and paste the problem description
+>The ghost busters have encountered N ghosts, and all of them are very cool.
+>No, they don't need help catching them, they are Ghostbusters! Their trouble is what ghost to catch.
+>All ghosts have a size value of s and a cool value of c. But the ghost busters' ghost storage box has only a maximum capacity of S! 😢 They can't catch all N ghosts > 
+>due to some of them have bigger size than others. They want to get the maximum cool value C by catching the ghosts.
+> ...
+
+- Duplicate file CodingClubTests/ComputerProblemTest.cs in the same folder and rename it to GhostbustersTest.cs
+- Rename the test class ComputerProblemTest to GhostbustersTest
+- According the problem description, you replace the Datasets for the new test class GhostbustersTest
+- Build the test project and run ComputerProblemTest via Test Explorer (Extension .NET Core Test Explorer), and they should fail which adhere Test-driven development (TDD) https://en.wikipedia.org/wiki/Test-driven_development
+ 
+- Write your codes into Exercises/GhostBusters.cs file, DoJob method.
+- Set breakpoint and debug GhostBustersTest.cs, if fails then modify your code in GhostBusters.cs until it is succeeded.
+- Copy script of DoJob method to replace main function body of Program.cs
+- Final run Exercises.csproj to make sure everything works.
+- Copy content of file program.cs and paste it to https://codingclub.macleans.repl.co/problems, GhostBusters page and submit.
+- Congraulation if you pass! Otherwise, go back to check your logic, you may miss some edge situation. You can add more dataset to your test class to test.
