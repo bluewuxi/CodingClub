@@ -3,10 +3,10 @@ using Exercise.Toolkit;
 
 namespace Exercise.FizzBuzz
 {
-    public class Approach1Testable
+    public class ApproachThatFails
     {
         private IConsole _console;
-        public Approach1Testable(IConsole console = null)
+        public ApproachThatFails(IConsole console = null)
         {
             if (console == null)
                 _console = new SystemConsole();

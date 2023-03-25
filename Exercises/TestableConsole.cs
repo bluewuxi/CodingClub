@@ -11,15 +11,17 @@ namespace Exercise.Toolkit
         void DoJob();
     }
 
+    // Important: testConsole split the inputed string using "," to mock multiple line feeding for console.ReadLine
+    // If your input include "," as content, you may need to provide other char to TestableConsole class contructor.
     public class TestableConsole: IConsole {
         public string output = "";
         private string[] _input;
         private int _cursor=0;
 
         // initInput string is a comma seperated text, e.g. "5,1,2,Fizz,Fuzz,5"
-        public TestableConsole(string initInput)
+        public TestableConsole(string initInput, string spliter = ",")
         {
-            _input = initInput.Split(",");
+            _input = initInput.Split(spliter);
         }
         public void WriteLine(string line){
             output += line;
