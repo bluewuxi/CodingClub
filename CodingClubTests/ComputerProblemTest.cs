@@ -13,7 +13,9 @@ namespace CodingClub.Tests
     {
 
         [DataTestMethod]
-        // Given example 1
+        // Important: testConsole split the inputed string using "," to mock multiple line feeding for console.ReadLine
+        // If your input include "," as content, you may need to give a spliter string to the TestableConsole constructor.
+         // Given example 1
         [DataRow("3 100000007", "6")]
         // Given example 2
         [DataRow("4 100000007", "20")]

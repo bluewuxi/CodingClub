@@ -13,16 +13,18 @@ namespace CodingClub.Tests
     {
         [TestMethod]
         // Test the given example
-        public void Test1GivenExample()
+        public void TestApproachThatFailsGivenExample()
         {
             var expected = "3 5";
             var testConsole = new TestableConsole("15,1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz");
-            var worker = new Approach1Testable(testConsole);
+            var worker = new ApproachThatFails(testConsole);
             worker.DoJob();
             Assert.AreEqual(expected, testConsole.output);
          }
 
         [DataTestMethod]
+        // Important: testConsole split the inputed string using "," to mock multiple line feeding for console.ReadLine
+        // If your input include "," as content, you may need to give a spliter string to the TestableConsole constructor.
         // Given example
         [DataRow("15,1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz", "3 5")]
         // Not start with 1
@@ -30,19 +32,19 @@ namespace CodingClub.Tests
         // Buzz appears only once
         [DataRow("15,2,Fizz,4,5,Fizz,7,8,Fizz,10,11,Fizz,13,14,FizzBuzz,16", "3 15")]
 
-        public void Test1DataSet(string input, string expected)
+        public void TestApproachThatFailsUsingDataSet(string input, string expected)
         {
             var testConsole = new TestableConsole(input);
-            var worker = new Approach1Testable(testConsole);
+            var worker = new ApproachThatFails(testConsole);
             worker.DoJob();
             Assert.AreEqual(expected, testConsole.output);
         }
         [TestMethod]
-        public void Test2GivenExample()
+        public void TestApproachThatSucceedsGivenExample()
         {
             var expected = "3 5";
             var testConsole = new TestableConsole("15,1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz");
-            var worker = new Approach2Testable(testConsole);
+            var worker = new ApproachThatSucceeds(testConsole);
             worker.DoJob();
             Assert.AreEqual(expected, testConsole.output );
         }
@@ -55,10 +57,10 @@ namespace CodingClub.Tests
         // Buzz appears only once
         [DataRow("15,2,Fizz,4,5,Fizz,7,8,Fizz,10,11,Fizz,13,14,FizzBuzz,16", "3 15")]
 
-        public void Test2DataSet(string input, string expected)
+        public void TestApproachThatSucceedsUsingDataSet(string input, string expected)
         {
             var testConsole = new TestableConsole(input);
-            var worker = new Approach2Testable(testConsole);
+            var worker = new ApproachThatSucceeds(testConsole);
             worker.DoJob();
             Assert.AreEqual(expected, testConsole.output );
         }
